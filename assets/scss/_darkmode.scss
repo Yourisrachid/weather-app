@@ -1,0 +1,7 @@
+body {
+    &.darkmode {
+        background: rgb(21,32,43);
+        background: linear-gradient(180deg, rgba(21,32,43,1) 6%, rgba(25,39,52,1) 51%, rgba(34,48,60,1) 99%); 
+        color: white;
+    }
+}

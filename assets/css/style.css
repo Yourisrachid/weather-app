@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: rgb(34, 195, 127);
+  background: linear-gradient(0deg, rgb(34, 195, 127) 0%, rgb(146, 190, 119) 27%, rgb(253, 187, 45) 100%);
+  background-repeat: no-repeat;
+  color: black;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 500;
+}
+
+body.darkmode {
+  background: rgb(21, 32, 43);
+  background: linear-gradient(180deg, rgb(21, 32, 43) 6%, rgb(25, 39, 52) 51%, rgb(34, 48, 60) 99%);
+  color: white;
+}
+
+.city {
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
+}
+
+.days {
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
+}
+
+.autocomplete {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: black;
+  z-index: 1000;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 3%;
+}
+
+#cityInput {
+  width: calc(100% - 110px);
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+#submitBtn {
+  width: 100px;
+  padding: 10px;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.autocomplete-items div {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.autocomplete-items div:hover {
+  background-color: #f0f0f0;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}/*# sourceMappingURL=style.css.map */

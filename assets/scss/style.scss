@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: rgb(34,195,127);
+    background: linear-gradient(0deg, rgba(34,195,127,1) 0%, rgba(146,190,119,1) 27%, rgba(253,187,45,1) 100%); 
+    background-repeat: no-repeat;
+    color: black;
+
+    font : {
+        family: "IBM Plex Sans", sans-serif;
+        weight: 500;
+    }
+}
+
+@import 'darkmode';
+@import 'main';
+@import 'header';
+@import 'footer';

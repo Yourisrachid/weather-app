@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script type="module" defer src="assets/script/script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <title>Weather App</title>
+</head>
+<body>
+
+    <header>
+        <h1> Weather App</h1>
+
+
+        <label class="darkModeDiv">
+            <label for="theme" class="container"></label>
+            <input id="dark-mode-toggle" class="theme__toggle" type="checkbox" role="switch" name="theme" value="dark">
+        </label>
+    </header>
+
+    <main>
+
+        <form id="weatherForm" class="autocomplete">
+            <input type="text" id="cityInput" placeholder="Type a city name...">
+            <button type="submit" id="submitBtn">Submit</button>
+            <div id="cityList" class="autocomplete-items"></div>
+        </form>
+
+        <div class="weather">
+
+        </div>
+
+
+    </main>
+
+    <footer>
+
+    </footer>
+    
+</body>
+</html>
