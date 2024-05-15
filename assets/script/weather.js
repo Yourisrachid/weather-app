@@ -66,6 +66,7 @@ export function weather() {
         });
 
 
+
             function fetchWeatherData() {
 
                 fetch(` https://api.openweathermap.org/data/2.5/forecast?q=${document.getElementById('cityInput').value}&appid=f569f7c440e13c5fe0bccce62f6283f8`)
@@ -73,53 +74,73 @@ export function weather() {
                 .then((response) => response.json())
                 .then((data) => {
 
-                    const todayWeather = document.querySelector('.weather');
-                    const secondsToAdd = data.city.timezone
-            
-                    const date = new Date;
-                    const utcDate = date.toUTCString()
-                    const utcDateSlice = utcDate.substring(0, utcDate.length - 4)
-                    const newDate = new Date(utcDateSlice)
+
+                    const todayWeather = document.querySelector('.weather');  
+
+                    let j = 0;
+
+                    for (let i = 0; i < 5; i++) {
+
+                        if (i != 0) {
+                            let j =+ 8;
+                        }
+
+                        console.log(j)
+                        console.log(i)
+
+                                    
+                        const date = new Date(data.list[j].dt_txt);
+                        const utcDate = date.toUTCString()
+                        const utcDateSlice = utcDate.substring(0, utcDate.length - 4)
+                        const newDate = new Date(utcDateSlice)
+
+                
+                        const stringDate = getFormattedDate(date.toISOString());
+                        const stringHour = getFormattedHour(date.toISOString());
+                
+                        const dateDay = document.createElement('p');
+                        const dateHour = document.createElement('p');
+                        const weatherState = document.createElement('div')
+                        const temp = document.createElement('p')
+                        const tempmin = document.createElement('p')
+                        const tempmax = document.createElement('p')
+                        const state = document.createElement('p')
+                        const details = document.createElement('button')
+                        details.classList.add('details')
+
+                        details.textContent = "Show next days details"
+
+                        weatherState.appendChild(temp)
+                        weatherState.appendChild(tempmin)
+                        weatherState.appendChild(tempmax)
+                        weatherState.appendChild(state)
+                        weatherState.appendChild(details)
 
 
-                    function addSeconds(date, seconds) {
-                        date.setSeconds(date.getSeconds() + seconds);
-                        return date;
+                
+                        dateDay.textContent = stringDate;
+                        dateHour.textContent = stringHour;
+
+                    
+                        temp.textContent ='Temperature : ' + parseFloat(data.list[j].main.temp-273).toFixed(2) + '°C'
+                        tempmin.textContent ='Temperature min. : ' +  parseFloat(data.list[j].main.temp_min-273).toFixed(2) + '°C'
+                        tempmax.textContent ='Temperature max. : ' +  parseFloat(data.list[j].main.temp_max-273).toFixed(2) + '°C'
+                        state.textContent = `Weather : ${data.list[j].weather[0].description}`
+                
+                        todayWeather.appendChild(dateDay);
+                        todayWeather.appendChild(dateHour);
+                        todayWeather.appendChild(weatherState);
+
+                        console.log(data.list[0].dt_txt)
+
+
                     }
 
-                    addSeconds(newDate, secondsToAdd);
 
-            
-                    const stringDate = getFormattedDate(newDate.toISOString());
-                    const stringHour = getFormattedHour(newDate.toISOString());
-            
-                    const dateDay = document.createElement('p');
-                    const dateHour = document.createElement('p');
-                    const weatherState = document.createElement('div')
-                    const temp = document.createElement('p')
-                    const tempmin = document.createElement('p')
-                    const tempmax = document.createElement('p')
-                    const state = document.createElement('p')
-
-                    weatherState.appendChild(temp)
-                    weatherState.appendChild(tempmin)
-                    weatherState.appendChild(tempmax)
-                    weatherState.appendChild(state)
+                    details.addEventListener('click', function() {
 
 
-            
-                    dateDay.textContent = stringDate;
-                    dateHour.textContent = stringHour;
-
-
-                    temp.textContent ='Temperature : ' + parseFloat(data.list[0].main.temp-273).toFixed(2) + '°C'
-                    tempmin.textContent ='Temperature min. : ' +  parseFloat(data.list[0].main.temp_min-273).toFixed(2) + '°C'
-                    tempmax.textContent ='Temperature max. : ' +  parseFloat(data.list[0].main.temp_max-273).toFixed(2) + '°C'
-                    state.textContent = `Weather : ${data.list[0].weather[0].description}`
-            
-                    todayWeather.appendChild(dateDay);
-                    todayWeather.appendChild(dateHour);
-                    todayWeather.appendChild(weatherState);
+                    })
 
                 })
                 .catch((error) => {

@@ -21,7 +21,6 @@
 
 .autocomplete-items {
     position: absolute;
-    border: 1px solid #ccc;
     background-color: #fff;
     color: black;
     z-index: 1000;
@@ -29,7 +28,7 @@
     max-height: 200px;
     overflow-y: auto;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin-top: 3%;
+    margin-top: 11%;
 }
 
 #cityInput {
@@ -53,4 +52,11 @@
 
 .autocomplete-items div:hover {
     background-color: #f0f0f0;
+}
+
+.container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(1, 100%);
+    //grid-template-rows: repeat(6,540px);
 }
