@@ -82,7 +82,23 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 5%;
+  margin-bottom: 15%;
+  margin-top: 7%;
+}
+header img {
+  width: 45%;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 50%;
+}
+footer img {
+  width: 5%;
 }
 
 .weather {
@@ -90,4 +106,9 @@ header {
   flex-direction: column;
   text-align: center;
   line-height: 40%;
+}
+.weather .day-container {
+  border: 2px solid white;
+  margin-top: 5%;
+  margin-bottom: 2.5%;
 }/*# sourceMappingURL=style.css.map */
