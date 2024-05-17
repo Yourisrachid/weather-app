@@ -1,0 +1,57 @@
+@media screen and (min-width: 1024px) {
+
+    header {
+
+        margin-left: -15%;
+        margin-right: -15%;
+        margin-top: 5%;
+        margin-bottom: 5%;
+
+        .logo {
+            width: 35%;
+        }
+    }
+
+
+
+
+    main {
+
+        .hour-container {
+        
+            font: {
+                size: 65px;
+            }
+        
+            .cityHour {
+        
+                font: {
+                    size: 45px;
+                }
+            }
+        }
+
+        .weather {
+            display: grid;
+            max-width: 100%;
+            text-align: center;
+            justify-content: center;
+            grid-template-columns: repeat(5, 20%);
+            grid-template-rows: repeat(1,100%);
+
+            font-size: smaller;
+
+            .day-container {
+                max-width: 90%;
+            }
+
+
+            .details {
+                font-size: 11.5px;
+            }
+        }
+
+    }
+
+
+}

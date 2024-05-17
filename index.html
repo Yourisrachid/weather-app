@@ -9,24 +9,48 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Recursive:wght@300..1000&display=swap" rel="stylesheet">
     <title>Weather App</title>
 </head>
 <body>
 
     <header>
         
-        <img src="assets/img/weather.svg">
+        <img class="logo" src="assets/img/weather.svg">
 
-
-        <button id="dark-mode-toggle">Enable Dark Mode</button>
+        <label class="switch">
+            <input id="dark-mode-toggle" type="checkbox">
+            <span class="slider"></span>
+        </label>
 
     </header>
 
     <main>
 
         <form id="weatherForm" class="autocomplete">
-            <input type="text" id="cityInput" placeholder="Type a city name...">
-            <button type="submit" id="submitBtn">Submit</button>
+
+            <div class="form-control">
+                <input id="cityInput" class="input input-alt" placeholder="Type a city name..." required="" type="text">
+                <span class="input-border input-border-alt"></span>
+            </div>
+              
+
+            <div class="submitButton">
+                <button class="animated-button" type="submit" id="submitBtn">
+                    <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                    ></path>
+                    </svg>
+                    <span class="text">Choose</span>
+                    <span class="circle"></span>
+                    <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                    ></path>
+                    </svg>
+                </button>
+            </div>
             <div id="cityList" class="autocomplete-items"></div>
         </form>
 

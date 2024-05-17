@@ -1,13 +1,25 @@
 .weather {
-    display: flex;
-    flex-direction: column;
+    
+    display: grid;
+    max-width: 100%;
     text-align: center;
+    justify-content: center;
+    grid-template-columns: repeat(1, 100%);
+    //grid-template-rows: repeat(5,100%);
+
     line-height: 40%;
+    border-radius: 20px;
+    padding: 5px;
+    text-align: center;
+
 
 
     .day-container {
-        border: 2px solid white;
+        border: 2px solid rgb(5, 6, 45);
         margin-top: 5%;
         margin-bottom: 2.5%;
+        background: rgba(255, 212, 20, 0.2) 0 15px 30px -5px;
+        border-radius: 17px;
+        margin-right: 2.5%;
     }
 }

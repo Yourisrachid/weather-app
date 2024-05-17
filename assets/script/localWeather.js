@@ -1,74 +1,32 @@
-export function weather() {
+export function localWeather() {
     document.addEventListener("DOMContentLoaded", function() {
 
-        const button = document.querySelector('#submitBtn');
-        const cityInput = document.getElementById('cityInput');
-        const cityListContainer = document.getElementById('cityList');
         const weatherContainer = document.querySelector('.weather');
 
-        async function fetchCities() {
-            try {
-                const response = await fetch('https://countriesnow.space/api/v0.1/countries/population/cities');
-                const data = await response.json();
-                return data.data;
-            } catch (error) {
-                console.error('Error fetching cities:', error);
-                return [];
-            }
-        }
 
-        function filterCities(inputValue, cities) {
-            return cities.filter(city => city.city.toLowerCase().startsWith(inputValue.toLowerCase()));
-        }
-
-        function displayCities(filteredCities) {
-            cityListContainer.innerHTML = '';
-            filteredCities.forEach(city => {
-                const cityName = city.city;
-                const cityElement = document.createElement('div');
-                cityElement.textContent = cityName;
-                cityElement.addEventListener('click', () => {
-                    cityInput.value = cityName;
-                    cityListContainer.innerHTML = '';
-                });
-                cityListContainer.appendChild(cityElement);
-            });
-        }
-
-        const weatherForm = document.getElementById('weatherForm');
-        weatherForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const city = cityInput.value.trim();
-            if (city) {
-                fetchWeatherData(city);
-            } else {
-                console.error('City is empty');
-            }
-        });
-
-        cityInput.addEventListener('input', async (event) => {
-            const inputValue = event.target.value;
-            if (inputValue.length > 1) {
-                const cities = await fetchCities();
-                const filteredCities = filterCities(inputValue, cities);
-                displayCities(filteredCities);
-            } else {
-                cityListContainer.innerHTML = '';
-            }
-        });
-
-        document.addEventListener('click', function(event) {
-            if (event.target !== cityInput && !cityListContainer.contains(event.target)) {
-                cityListContainer.innerHTML = '';
-            }
-        });
-
-        async function fetchWeatherData(city) {
+        async function fetchWeatherData() {
             weatherContainer.innerHTML = '';
             removeHourContainer();
 
+            let getLocationPromise = new Promise((resolve, reject) => {
+                if(navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function (position) {
+                    
+                        lat = position.coords.latitude
+                        long = position.coords.longitude
+            
+    
+                        resolve({latitude: lat, 
+                                longitude: long})
+                    })
+            
+                } else {
+                    reject("your browser doesn't support geolocation API")
+                }
+            })
+
             try {
-                const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=f569f7c440e13c5fe0bccce62f6283f8`);
+                const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${getLocationPromise.then((location) => {location.latitude.toFixed(2)})}&lon=${getLocationPromise.then((location) => {location.longitude})}&appid=f569f7c440e13c5fe0bccce62f6283f8`);
                 const data = await response.json();
 
                 if (data.cod !== "200") {
@@ -252,10 +210,10 @@ export function weather() {
             return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
         }
 
-        const scrollSub = document.querySelector('.weather')
-        weatherForm.addEventListener('submit', function() {
-            scrollSub.scrollIntoView({ behavior: "smooth", block: "start"});
-        });
+        fetchWeatherData();
 
     });
-}
+
+
+
+} 

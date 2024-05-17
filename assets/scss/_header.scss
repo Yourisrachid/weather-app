@@ -1,12 +1,15 @@
 header {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     margin-bottom: 15%;
     margin-top: 7%;
+    margin-left: -3%;
+    margin-right: -3%;
 
-    img {
+    .logo {
         width : 45%;
+        filter: invert(8%) sepia(47%) saturate(1928%) hue-rotate(216deg) brightness(96%) contrast(112%);
     }
 }
