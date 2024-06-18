@@ -21,5 +21,28 @@
         background: rgba(255, 212, 20, 0.2) 0 15px 30px -5px;
         border-radius: 17px;
         margin-right: 2.5%;
+
+        .insideCard {
+            width: 92%;
+        }
+    }
+}
+
+.weatherimg {
+
+    margin-left: 7%;
+    margin-top: 3%;
+
+    img {
+        width: 90%;
+        border-radius: 10%;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .chart {
+        width: 90% !important;
+        height: auto !important;
     }
 }

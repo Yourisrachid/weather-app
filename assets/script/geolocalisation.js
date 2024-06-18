@@ -1,24 +1,13 @@
-export function geolocalisation() {
-
-  const options = {
-    enableHighAccuracy: true,
-    timeout: 5000,
-    maximumAge: 0,
-  };
-  
-  function success(pos) {
-    const crd = pos.coords;
-  
-    console.log("Your current position is:");
-    console.log(`Latitude : ${crd.latitude}`);
-    console.log(`Longitude: ${crd.longitude}`);
-    console.log(`More or less ${crd.accuracy} meters.`);
+export async function getLocationAndFetchWeather(fetchWeatherDataByCoords) {
+  if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+          fetchWeatherDataByCoords(latitude, longitude);
+      }, error => {
+          console.error('Error getting location:', error);
+      });
+  } else {
+      console.error('Geolocation is not supported by this browser.');
   }
-  
-  function error(err) {
-    console.warn(`ERROR(${err.code}): ${err.message}`);
-  }
-  
-  navigator.geolocation.getCurrentPosition(success, error, options);
-
-}  
+}

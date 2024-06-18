@@ -67,6 +67,17 @@ export function localWeather() {
                 updateHour();
                 setInterval(updateHour, 1000);
 
+
+
+
+        //---------------------------------------------------------------------------------
+
+
+
+
+
+
+
                 for (let i = 0; i < 5; i++) {
                     let j = i * 8;
 
@@ -127,12 +138,36 @@ export function localWeather() {
             }
         }
 
+
+
+
+        //---------------------------------------------------------------------------------
+
+
+
+
+
+
+
         function removeHourContainer() {
             const hourContainer = document.querySelector('.hour-container');
             if (hourContainer) {
                 hourContainer.remove();
             }
         }
+
+
+
+
+
+
+        //---------------------------------------------------------------------------------
+
+
+
+
+
+
 
         function toggleTemperatureChart(data, dayIndex, detailsContainer) {
             const chartCanvas = detailsContainer.querySelector('canvas.chart');
@@ -187,6 +222,17 @@ export function localWeather() {
 
             detailsContainer.appendChild(chartCanvas);
         }
+
+
+
+
+
+
+
+
+
+
+
 
         function getFormattedDate(dateString) {
             const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];

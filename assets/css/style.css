@@ -110,29 +110,30 @@ body.darkmode .weather .day-container {
   background: rgb(5, 6, 45);
   box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
 }
+body.darkmode .modal {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+body.darkmode .modal-content {
+  background-color: rgb(5, 6, 45);
+}
 
-/* The switch - the box around the slider */
 .switch {
   display: block;
   --width-of-switch: 3.5em;
   --height-of-switch: 2em;
-  /* size of sliding icon -- sun and moon */
   --size-of-icon: 1.4em;
-  /* it is like a inline-padding of switch */
   --slider-offset: 0.3em;
   position: relative;
   width: var(--width-of-switch);
   height: var(--height-of-switch);
 }
 
-/* Hide default HTML checkbox */
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* The slider */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -165,7 +166,6 @@ input:checked + .slider {
 input:checked + .slider:before {
   left: calc(100% - (var(--size-of-icon, 1.4em) + var(--slider-offset, 0.3em)));
   background: #303136;
-  /* change the value of second inset in box-shadow to change the angle and direction of the moon  */
   box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
 }
 
@@ -245,7 +245,7 @@ footer {
   margin-top: 10%;
 }
 footer img {
-  width: 5%;
+  width: 7.5%;
 }
 
 .weather {
@@ -267,7 +267,25 @@ footer img {
   border-radius: 17px;
   margin-right: 2.5%;
 }
+.weather .day-container .insideCard {
+  width: 92%;
+}
 
+.weatherimg {
+  margin-left: 7%;
+  margin-top: 3%;
+}
+.weatherimg img {
+  width: 90%;
+  border-radius: 10%;
+}
+
+@media (max-width: 600px) {
+  .chart {
+    width: 90% !important;
+    height: auto !important;
+  }
+}
 .animated-button {
   position: relative;
   display: flex;
@@ -482,7 +500,7 @@ footer img {
   transition: var(--btn-transition);
   overflow: hidden;
   box-shadow: var(--btn-shadow);
-  margin-left: 11%;
+  margin-left: 29% !important;
   margin-bottom: 5%;
 }
 
@@ -595,13 +613,16 @@ footer img {
     margin-bottom: 5%;
   }
   header .logo {
-    width: 35%;
+    width: 15%;
   }
   main .hour-container {
     font-size: 65px;
   }
   main .hour-container .cityHour {
     font-size: 45px;
+  }
+  main .details {
+    margin-left: 20% !important;
   }
   main .weather {
     display: grid;
@@ -613,9 +634,55 @@ footer img {
     font-size: smaller;
   }
   main .weather .day-container {
-    max-width: 90%;
+    max-width: 95%;
   }
   main .weather .details {
     font-size: 11.5px;
   }
+  main .weatherimg {
+    margin-left: 32%;
+    margin-top: 3%;
+  }
+  main .weatherimg img {
+    width: 50%;
+    border-radius: 10%;
+  }
+  footer img {
+    width: 2%;
+  }
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */
