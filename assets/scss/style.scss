@@ -1,12 +1,20 @@
 body {
     margin: 0;
     padding: 0;
+    min-height: 100vh;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
     background: rgb(89,184,144);
     background: linear-gradient(0deg, rgba(89,184,144,1) 10%, rgba(255,204,95,1) 100%); 
     background-repeat: no-repeat;
     color: rgb(5, 6, 45);
+}
 
+.wrapper {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
 }
 
 @import 'darkmode';
@@ -20,3 +28,5 @@ body {
 @import 'detailsButton';
 @import 'desktop';
 @import 'graphmodal';
+
+
